@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #1a1717;
   --foreground: #171717;
 
   --font-sans: var(--font-poppins), var(--font-geist-sans), Arial, Helvetica,
@@ -12,11 +12,43 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #291919;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(0.25rem);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 200ms ease-out forwards;
+  }
+
+  .animate-fade-out {
+    animation: fade-out 150ms ease-in forwards;
+  }
 }
